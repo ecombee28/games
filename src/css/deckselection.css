@@ -1,0 +1,46 @@
+.deck-selection-main-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(42, 42, 42);
+  position: absolute;
+  z-index: 10;
+}
+.deck-selection-box {
+  width: 80vw;
+  height: 90vh;
+  background-color: rgb(219, 219, 219);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.deck-selection-box .title {
+  font-size: 3rem;
+  color: rgb(0, 0, 0);
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.deck-selection-box .selection-wrapper {
+  width: 90%;
+  height: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.deck-selection-box .selection-box {
+  width: 22%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.deck-selection-box .selection-box img {
+  width: 100%;
+  height: 70%;
+  object-fit: contain;
+}

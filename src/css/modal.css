@@ -1,0 +1,28 @@
+.winner-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(254, 254, 254, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 100;
+}
+
+.winner-box {
+  width: 700px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: #000000;
+  gap: 4vh;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 3vw;
+}

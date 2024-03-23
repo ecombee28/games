@@ -1,0 +1,30 @@
+.large_button {
+  width: 280px;
+  background-color: #1c69ee;
+  color: white;
+  padding: 9px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 30px;
+  border-radius: 10px;
+  transition-duration: 0.2s;
+}
+.large_button:hover {
+  background-color: #528ef5;
+  cursor: pointer;
+}
+
+.medium_button {
+  background-color: #1c69ee;
+  color: white;
+  padding: 9px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  border-radius: 10px;
+  transition-duration: 0.2s;
+}
+.medium_button:hover {
+  background-color: #528ef5;
+  cursor: pointer;
+}
