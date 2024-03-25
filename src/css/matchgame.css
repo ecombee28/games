@@ -28,14 +28,13 @@
   height: 88%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: baseline;
-  gap: 1.5vw;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
 }
 .game_container.center {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  background-color: #0f43ff;
 }
