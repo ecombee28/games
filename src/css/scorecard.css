@@ -10,7 +10,7 @@
   float: right;
 }
 .score-card-double {
-  min-width: 1200px;
+  min-width: 1300px;
   padding-left: 10px;
   font-size: 25px;
   color: #ffffff;
@@ -21,11 +21,8 @@
   float: right;
 }
 
-.current-players-turn-wrapper {
-  width: 330px;
-}
-.player-scores-wraper {
-  width: 300px;
+.players-wrapper {
+  width: 350px;
 }
 .player-1 {
   color: rgb(26, 176, 10);

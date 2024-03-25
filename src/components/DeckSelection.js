@@ -126,7 +126,7 @@ export default function DeckSelection({ deckInfo }) {
     <div className="deck-selection-main-wrapper">
       <div className="deck-selection-box">
         <span className="title">Pick your deck of cards</span>
-        {!allSelected && <span>Make all selections</span>}
+        {!allSelected && <span className="alert">Make all selections</span>}
         <div className="selection-wrapper">
           <div className="selection-box">
             <img src={PixarImag} alt="" />

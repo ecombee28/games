@@ -20,13 +20,13 @@ const ScoreCard = ({
         </div>
       ) : (
         <div className="score-card-double">
-          <h2 className="current-players-turn-wrapper">
+          <h2 className="players-wrapper">
             It's <span>{currentPlayersTurn}'s</span> turn
           </h2>
-          <h2 className="player-scores-wraper player-1">
+          <h2 className="players-wrapper player-1">
             {playerOneName} score: {player1Score}
           </h2>
-          <h2 className="player-scores-wraper player-2">
+          <h2 className="players-wrapper player-2">
             {playerTwoName} score: {player2Score}
           </h2>
         </div>
