@@ -188,8 +188,8 @@ export default function DeckSelection({ deckInfo }) {
                 type="text"
                 className="name-input"
                 onKeyUp={(e) => setPlayer1Name(e.target.value)}
-                autoComplete="off"
-                maxLength={10}
+                maxLength="10"
+                size="2"
               />
             </div>
             <div className="name-container">
@@ -198,8 +198,7 @@ export default function DeckSelection({ deckInfo }) {
                 type="text"
                 className="name-input"
                 onKeyUp={(e) => setPlayer2Name(e.target.value)}
-                autoComplete="off"
-                maxLength={10}
+                maxLength="10"
               />
             </div>
           </div>

@@ -63,7 +63,7 @@
 }
 
 .play-name-input-container {
-  width: 65%;
+  width: 60%;
   padding: 10px;
   display: flex;
   flex-direction: row;
@@ -76,9 +76,10 @@
   align-items: flex-end;
 }
 .name-input-label {
-  font-size: 25px;
+  font-size: 20px;
 }
 .name-input {
+  width: 150px;
   height: 40px;
   padding: 0px 5px;
   font-size: 20px;
