@@ -5,9 +5,15 @@ import { Link } from "react-router-dom";
 import Confetti from "react-confetti";
 import { useWindowSize } from "react-use";
 
-function Modal({ moveCount, victoryImage, gameOver, victoryMusic }) {
+function Modal({
+  moveCount,
+  victoryImage,
+  gameOver,
+  victoryMusic,
+  winningName,
+  winningScore,
+}) {
   const { width, height } = useWindowSize();
-  const { startMusic, setStartMusic } = useState(gameOver);
   let musicPlayer = new Audio(victoryMusic);
 
   useEffect(() => {
@@ -30,7 +36,9 @@ function Modal({ moveCount, victoryImage, gameOver, victoryMusic }) {
     <main className="winner-container">
       <Confetti width={width} height={height} />
       <div className="winner-box">
-        <h1>You won in {moveCount} moves</h1>
+        <h1>
+          Congradulations {winningName}. You won, with a score of {winningScore}
+        </h1>
         <div className="victory-image-container">
           <img src={victoryImage} alt="victory" className="victory-image" />
         </div>

@@ -1,4 +1,4 @@
-.score_card {
+.score-card-single {
   min-width: 600px;
   padding-left: 10px;
   font-size: 25px;
@@ -8,4 +8,28 @@
   flex-direction: row;
   justify-content: space-evenly;
   float: right;
+}
+.score-card-double {
+  min-width: 1200px;
+  padding-left: 10px;
+  font-size: 25px;
+  color: #ffffff;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  float: right;
+}
+
+.current-players-turn-wrapper {
+  width: 330px;
+}
+.player-scores-wraper {
+  width: 300px;
+}
+.player-1 {
+  color: rgb(26, 176, 10);
+}
+.player-2 {
+  color: rgba(242, 255, 1, 0.925);
 }

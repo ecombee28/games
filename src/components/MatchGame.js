@@ -19,6 +19,17 @@ export default function MatchGame() {
   const [currentBackground, setCurrentBackground] = useState("");
   const [gameOver, setGameOver] = useState(false);
   const [music, setMusic] = useState("");
+  const [victoryImage, setVictoryImage] = useState("");
+  const [numberOfPlayers, setNumberOfPlayers] = useState(0);
+  const [player1Score, setPlayer1Score] = useState(0);
+  const [player2Score, setPlayer2Score] = useState(0);
+  const [player1Turn, setPlayer1Turn] = useState(false);
+  const [player2Turn, setPlayer2Turn] = useState(false);
+  const [currentPlayer, setCurrentPlayer] = useState("");
+  const [player1Name, setPlayer1Name] = useState("Player 1");
+  const [player2Name, setPlayer2Name] = useState("Player 2");
+  const [winnersName, setWinnerNames] = useState("");
+  const [winningScore, setWinningScore] = useState(0);
 
   useEffect(() => {
     let timeout = null;
@@ -42,7 +53,14 @@ export default function MatchGame() {
   };
 
   const checkCompletion = () => {
-    if (Object.keys(clearedCards).length === 13) {
+    if (Object.keys(clearedCards).length === 3) {
+      if (player1Score > player2Score) {
+        setWinnerNames(player1Name);
+        setWinningScore(player1Score);
+      } else {
+        setWinnerNames(player2Name);
+        setWinningScore(player2Score);
+      }
       setShowModal(true);
       setGameOver(true);
     }
@@ -53,7 +71,26 @@ export default function MatchGame() {
     //Match
     if (cards[first] === cards[second]) {
       setClearedCards((prev) => [...prev, cards[first]]);
+      if (numberOfPlayers !== 1) {
+        if (player1Turn) {
+          setPlayer1Score((score) => score + 1);
+        } else {
+          setPlayer2Score((score) => score + 1);
+        }
+      }
       setShouldRemoveCard(!shouldRemoveCard);
+    }
+
+    if (numberOfPlayers !== 1) {
+      if (player1Turn) {
+        setPlayer1Turn(false);
+        setCurrentPlayer(player2Name);
+        setPlayer2Turn(true);
+      } else {
+        setPlayer2Turn(false);
+        setCurrentPlayer(player1Name);
+        setPlayer1Turn(true);
+      }
     }
 
     setOpenCards([]);
@@ -87,10 +124,26 @@ export default function MatchGame() {
     return clearedCards.includes(cards[index]);
   };
 
-  function setDeckInformation(deck, background, music) {
+  function setDeckInformation(
+    deck,
+    background,
+    music,
+    numberOfPlayers,
+    victoryImage,
+    playerOneName,
+    playerTwoName
+  ) {
     setCards(deck);
     setCurrentBackground(background);
     setMusic(music);
+    setNumberOfPlayers(numberOfPlayers);
+    setVictoryImage(victoryImage);
+    setPlayer1Turn(true);
+    if (numberOfPlayers === 2) {
+      setPlayer1Name(playerOneName);
+      setPlayer2Name(playerTwoName);
+      setCurrentPlayer(playerOneName);
+    }
     setStartGame(true);
   }
 
@@ -101,9 +154,11 @@ export default function MatchGame() {
         {showModal && (
           <Modal
             moveCount={moves}
-            victoryImage={cards[0].victoryImage}
+            victoryImage={victoryImage}
             gameOver={gameOver}
             victoryMusic={music}
+            winningName={winnersName}
+            winningScore={winningScore}
           />
         )}
         <img
@@ -112,7 +167,16 @@ export default function MatchGame() {
           className="match-background"
         />
         <div className="white-out">
-          <ScoreCard moves={moves} matchCount={clearedCards.length} />
+          <ScoreCard
+            currentPlayersTurn={currentPlayer}
+            moves={moves}
+            matchCount={clearedCards.length}
+            numberOfPlayers={numberOfPlayers}
+            player1Score={player1Score}
+            player2Score={player2Score}
+            playerOneName={player1Name}
+            playerTwoName={player2Name}
+          />
           <div className={"game_container"}>
             {cards.map((card, index) => (
               <Card

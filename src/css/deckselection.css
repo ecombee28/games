@@ -9,12 +9,13 @@
   z-index: 10;
 }
 .deck-selection-box {
-  width: 80vw;
-  height: 90vh;
+  width: 90vw;
+  height: auto;
+  padding: 15px;
   background-color: rgb(219, 219, 219);
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -24,23 +25,68 @@
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
-.deck-selection-box .selection-wrapper {
-  width: 90%;
+.selection-wrapper {
+  width: 100%;
   height: 60%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
-.deck-selection-box .selection-box {
-  width: 22%;
-  height: 100%;
+.selection-box {
+  width: 20%;
+  height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.deck-selection-box .selection-box img {
+.selection-box img {
   width: 100%;
   height: 70%;
   object-fit: contain;
+}
+
+.player-selection-container {
+  width: 20%;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.start-button {
+  margin-top: 20px;
+}
+.button-clicked {
+  border: 2px solid red;
+  background-color: #528ef5;
+}
+
+.play-name-input-container {
+  width: 65%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.name-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+}
+.name-input-label {
+  font-size: 1.7em;
+}
+.name-input {
+  height: 40px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 1.2em;
+  font-weight: bolder;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+  background-color: transparent;
+  margin-left: 10px;
 }
