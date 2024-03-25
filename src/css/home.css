@@ -5,8 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("../img/mainback.WebP");
-  background-size: cover;
+  background-color: #98a0ad;
 }
 .main_selection {
   width: 600px;

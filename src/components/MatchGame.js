@@ -42,10 +42,9 @@ export default function MatchGame() {
   };
 
   const checkCompletion = () => {
-    if (Object.keys(clearedCards).length === 3) {
+    if (Object.keys(clearedCards).length === 13) {
       setShowModal(true);
       setGameOver(true);
-      //new Audio(music).play();
     }
   };
 
@@ -53,7 +52,6 @@ export default function MatchGame() {
     const [first, second] = openCards;
     //Match
     if (cards[first] === cards[second]) {
-      //setClearedCards((prev) => ({ ...prev, [cards[first].type]: true }));
       setClearedCards((prev) => [...prev, cards[first]]);
       setShouldRemoveCard(!shouldRemoveCard);
     }
@@ -105,7 +103,7 @@ export default function MatchGame() {
             moveCount={moves}
             victoryImage={cards[0].victoryImage}
             gameOver={gameOver}
-            victoryMusic={cards[0].victoryMusic}
+            victoryMusic={music}
           />
         )}
         <img

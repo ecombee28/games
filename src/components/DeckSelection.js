@@ -71,7 +71,7 @@ export default function DeckSelection({ deckInfo }) {
               className="medium_button"
               onClick={() => handleSelection("spongebob")}
             >
-              Spongebob Deck
+              SpongeBob Deck
             </button>
           </div>
           <div className="selection-box">

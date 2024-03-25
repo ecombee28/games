@@ -6,7 +6,7 @@ import marioVictory from "../audio/mario_victory.mp3";
 //Build the Mario card deck
 export const buildMarioArray = () => {
   let marioArray = [];
-  for (let i = 1; i < 4; i++) {
+  for (let i = 1; i < 14; i++) {
     marioArray.push({
       number: i,
       image: require("../img/mariobros/" + i + ".png"),
@@ -23,7 +23,7 @@ export const buildMarioArray = () => {
 //Build the Pixar card deck
 const buildPixarArray = () => {
   let pixarArray = [];
-  for (let i = 1; i < 4; i++) {
+  for (let i = 1; i < 14; i++) {
     pixarArray.push({
       number: i,
       image: require("../img/pixar/" + i + ".png"),
@@ -40,7 +40,7 @@ const buildPixarArray = () => {
 //Build the Sponge bob card deck
 const buildSpongeBobArray = () => {
   let pixarArray = [];
-  for (let i = 1; i < 4; i++) {
+  for (let i = 1; i < 14; i++) {
     pixarArray.push({
       number: i,
       image: require("../img/sponge/" + i + ".png"),
