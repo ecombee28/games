@@ -22,12 +22,12 @@ function Home() {
         </Link>
         <Link to="/">
           <div>
-            <button className="large_button">Spelling</button>
+            <button className="large_button">Spelling Game</button>
           </div>
         </Link>
         <Link to="/">
           <div>
-            <button className="large_button">Math</button>
+            <button className="large_button">Math Game</button>
           </div>
         </Link>
       </div>

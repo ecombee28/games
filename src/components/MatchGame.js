@@ -2,15 +2,9 @@ import React from "react";
 import { useEffect, useState, useRef } from "react";
 import "../css/matchgame.css";
 import Card from "./Card.js";
-import {
-  pixarCardsArray,
-  batmanCardsArray,
-  marioCardsArray,
-  spongeCardsArray,
-} from "../lib/data.js";
 import Modal from "../components/Modal.js";
-import shuffleCards from "../lib/ShuffleCards.js";
 import DeckSelection from "./DeckSelection.js";
+import ScoreCard from "./ScoreCard.js";
 
 export default function MatchGame() {
   const [startGame, setStartGame] = useState(false);
@@ -23,6 +17,8 @@ export default function MatchGame() {
   const timeout = useRef(null);
   const [shouldRemoveCard, setShouldRemoveCard] = useState(false);
   const [currentBackground, setCurrentBackground] = useState("");
+  const [gameOver, setGameOver] = useState(false);
+  const [music, setMusic] = useState("");
 
   useEffect(() => {
     let timeout = null;
@@ -46,12 +42,10 @@ export default function MatchGame() {
   };
 
   const checkCompletion = () => {
-    if (Object.keys(clearedCards).length === pixarCardsArray.length) {
+    if (Object.keys(clearedCards).length === 3) {
       setShowModal(true);
-      //const highScore = Math.min(moves, bestScore);
-      //  setBestScore(highScore);
-      //localStorage.setItem("bestScore", highScore);
-      console.log("Done in " + moves);
+      setGameOver(true);
+      //new Audio(music).play();
     }
   };
 
@@ -61,7 +55,6 @@ export default function MatchGame() {
     if (cards[first] === cards[second]) {
       //setClearedCards((prev) => ({ ...prev, [cards[first].type]: true }));
       setClearedCards((prev) => [...prev, cards[first]]);
-      console.log("Match");
       setShouldRemoveCard(!shouldRemoveCard);
     }
 
@@ -96,35 +89,32 @@ export default function MatchGame() {
     return clearedCards.includes(cards[index]);
   };
 
-  const pickCardDeck = (selection) => {
-    if (selection === "pixar") {
-      setCards(shuffleCards(pixarCardsArray.concat(pixarCardsArray)));
-      setCurrentBackground(pixarCardsArray[0].background);
-    } else if (selection === "batman") {
-      setCards(shuffleCards(batmanCardsArray.concat(batmanCardsArray)));
-      setCurrentBackground(batmanCardsArray[0].background);
-    } else if (selection === "spongebob") {
-      setCards(shuffleCards(spongeCardsArray.concat(spongeCardsArray)));
-      setCurrentBackground(spongeCardsArray[0].background);
-    } else {
-      setCards(shuffleCards(marioCardsArray.concat(marioCardsArray)));
-      setCurrentBackground(marioCardsArray[0].background);
-    }
-
+  function setDeckInformation(deck, background, music) {
+    setCards(deck);
+    setCurrentBackground(background);
+    setMusic(music);
     setStartGame(true);
-  };
+  }
 
   return (
     <>
-      {!startGame && <DeckSelection deckPicked={pickCardDeck} />}
+      {!startGame && <DeckSelection deckInfo={setDeckInformation} />}
       <main className="main">
-        {showModal ? <Modal moveCount={moves} /> : ""}
-        <img src={currentBackground} alt="background" />
+        {showModal && (
+          <Modal
+            moveCount={moves}
+            victoryImage={cards[0].victoryImage}
+            gameOver={gameOver}
+            victoryMusic={cards[0].victoryMusic}
+          />
+        )}
+        <img
+          src={currentBackground}
+          alt="background"
+          className="match-background"
+        />
         <div className="white-out">
-          <div className="score_card">
-            <h2>Moves: {moves}</h2>
-            <h2>Match Count: {clearedCards.length}</h2>
-          </div>
+          <ScoreCard moves={moves} matchCount={clearedCards.length} />
           <div className={"game_container"}>
             {cards.map((card, index) => (
               <Card
