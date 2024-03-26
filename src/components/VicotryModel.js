@@ -37,7 +37,7 @@ function Modal({
       <Confetti width={width} height={height} />
       <div className="winner-box">
         <h1>
-          Congradulations {winningName}. You won, with a score of {winningScore}
+          Congratulations {winningName}. You won, with a score of {winningScore}
         </h1>
         <div className="victory-image-container">
           <img src={victoryImage} alt="victory" className="victory-image" />

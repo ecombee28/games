@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState, useRef } from "react";
 import "../css/matchgame.css";
 import Card from "./Card.js";
-import Modal from "./VicotryModel.js";
+import VicotryModel from "./VicotryModel.js";
 import DeckSelection from "./DeckSelection.js";
 import ScoreCard from "./ScoreCard.js";
 
@@ -55,13 +55,18 @@ export default function MatchGame() {
 
   const checkCompletion = () => {
     if (Object.keys(clearedCards).length === deckSize) {
-      if (player1Score > player2Score) {
-        setWinnerNames(player1Name);
-        setWinningScore(player1Score);
+      if (numberOfPlayers === 2) {
+        if (player1Score > player2Score) {
+          setWinnerNames(player1Name);
+          setWinningScore(player1Score);
+        } else {
+          setWinnerNames(player2Name);
+          setWinningScore(player2Score);
+        }
       } else {
-        setWinnerNames(player2Name);
-        setWinningScore(player2Score);
+        setWinningScore(moves);
       }
+
       setShowModal(true);
       setGameOver(true);
     }
@@ -81,7 +86,7 @@ export default function MatchGame() {
       }
       setShouldRemoveCard(!shouldRemoveCard);
     }
-
+    //Switch players turns
     if (numberOfPlayers !== 1) {
       if (player1Turn) {
         setPlayer1Turn(false);
@@ -144,6 +149,8 @@ export default function MatchGame() {
       setPlayer1Name(playerOneName);
       setPlayer2Name(playerTwoName);
       setCurrentPlayer(playerOneName);
+    } else {
+      setWinnerNames("");
     }
     setStartGame(true);
   }
@@ -153,7 +160,7 @@ export default function MatchGame() {
       {!startGame && <DeckSelection deckInfo={setDeckInformation} />}
       <main className="main">
         {showModal && (
-          <Modal
+          <VicotryModel
             moveCount={moves}
             victoryImage={victoryImage}
             gameOver={gameOver}
