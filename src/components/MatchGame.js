@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState, useRef } from "react";
 import "../css/matchgame.css";
 import Card from "./Card.js";
-import Modal from "../components/Modal.js";
+import Modal from "./VicotryModel.js";
 import DeckSelection from "./DeckSelection.js";
 import ScoreCard from "./ScoreCard.js";
 
@@ -30,6 +30,7 @@ export default function MatchGame() {
   const [player2Name, setPlayer2Name] = useState("Player 2");
   const [winnersName, setWinnerNames] = useState("");
   const [winningScore, setWinningScore] = useState(0);
+  const deckSize = 13;
 
   useEffect(() => {
     let timeout = null;
@@ -53,7 +54,7 @@ export default function MatchGame() {
   };
 
   const checkCompletion = () => {
-    if (Object.keys(clearedCards).length === 3) {
+    if (Object.keys(clearedCards).length === deckSize) {
       if (player1Score > player2Score) {
         setWinnerNames(player1Name);
         setWinningScore(player1Score);
