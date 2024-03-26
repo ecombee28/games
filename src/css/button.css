@@ -8,10 +8,10 @@
   font-size: 30px;
   border-radius: 10px;
   transition-duration: 0.2s;
+  cursor: pointer;
 }
 .large_button:hover {
   background-color: #528ef5;
-  cursor: pointer;
 }
 
 .medium_button {
@@ -23,8 +23,33 @@
   font-size: 20px;
   border-radius: 10px;
   transition-duration: 0.2s;
+  cursor: pointer;
 }
 .medium_button:hover {
   background-color: #528ef5;
+}
+
+.small_button {
+  background-color: #1c69ee;
+  color: white;
+  padding: 9px 0px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  border-radius: 10px;
+  transition-duration: 0.2s;
   cursor: pointer;
+}
+.small_button:hover {
+  background-color: #528ef5;
+}
+
+.disabled {
+  background-color: #bad1f9;
+  cursor: none;
+}
+
+.large_button.disabled:hover {
+  background-color: #bad1f9;
+  cursor: default;
 }

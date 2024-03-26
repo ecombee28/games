@@ -12,22 +12,30 @@ function Home() {
 
         <Link to="/matchgame">
           <div>
-            <button className="large_button">Match Game</button>
+            <button type="button" className="large_button">
+              Match Game
+            </button>
           </div>
         </Link>
         <Link to="/">
           <div>
-            <button className="large_button">Word Game</button>
+            <button type="button" className="large_button disabled">
+              Word Game
+            </button>
           </div>
         </Link>
         <Link to="/">
           <div>
-            <button className="large_button">Spelling Game</button>
+            <button type="button" className="large_button disabled">
+              Spelling Game
+            </button>
           </div>
         </Link>
         <Link to="/">
           <div>
-            <button className="large_button">Math Game</button>
+            <button type="button" className="large_button disabled">
+              Math Game
+            </button>
           </div>
         </Link>
       </div>

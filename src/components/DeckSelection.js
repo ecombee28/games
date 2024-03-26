@@ -131,37 +131,37 @@ export default function DeckSelection({ deckInfo }) {
           <div className="selection-box">
             <img src={PixarImag} alt="" />
             <button
-              className={`medium_button ${pixarPicked && "button-clicked"}`}
+              className={`small_button ${pixarPicked && "button-clicked"}`}
               onClick={() => handleSelection("pixar")}
             >
-              Pixar Deck
+              Pixar
             </button>
           </div>
           <div className="selection-box">
             <img src={BatmanImg} alt="" />
             <button
-              className={`medium_button ${batmanPicked && "button-clicked"}`}
+              className={`small_button ${batmanPicked && "button-clicked"}`}
               onClick={() => handleSelection("batman")}
             >
-              Batman Deck
+              Lego Batman
             </button>
           </div>
           <div className="selection-box">
             <img src={SpongImg} alt="" />
             <button
-              className={`medium_button ${spongePicked && "button-clicked"}`}
+              className={`small_button ${spongePicked && "button-clicked"}`}
               onClick={() => handleSelection("spongebob")}
             >
-              SpongeBob Deck
+              SpongeBob
             </button>
           </div>
           <div className="selection-box">
             <img src={MarioImg} alt="" />
             <button
-              className={`medium_button ${marioPicked && "button-clicked"}`}
+              className={`small_button ${marioPicked && "button-clicked"}`}
               onClick={() => handleSelection("mario")}
             >
-              Mario Bros. Deck
+              Mario Bros.
             </button>
           </div>
         </div>
